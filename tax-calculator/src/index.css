@@ -1,0 +1,47 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0px;
+  background: linear-gradient(to right, #00AAFF, #00FF6C);
+}
+
+.calculator-container {
+  border-style: groove;
+  border-width: 0.15rem;
+  background: rgb(0, 217, 255);
+  
+  margin-top: 10%;
+  margin-left: 30%;
+  margin-right: 30%;
+}
+
+.input-container {
+  padding: 3%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.button-container {
+  padding-bottom: 3%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.calculation-container {
+  border-style: solid;
+}
+
+#after-tax {
+  pointer-events: none;
+}
+
+#contributions {
+  pointer-events: none;
+}
