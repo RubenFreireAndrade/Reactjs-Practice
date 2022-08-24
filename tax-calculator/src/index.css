@@ -4,22 +4,44 @@
 
 body {
   margin: 0px;
-  background: linear-gradient(to right, #00AAFF, #00FF6C);
+}
+
+.background {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+
+  background-size: cover;
+  background-position: center;
+  background-image: url('./Components/images/mountain.jpg');
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  color: white;
+  font-size: 4rem;
+  text-shadow: 2px 2px 4px #000000;
+  -webkit-text-stroke: 0.2px;
+  -webkit-text-stroke-color: black;
 }
 
 .calculator-container {
+  width: 30%;
+  height: auto;
+  
   border-style: solid;
   border-radius: 5px;
   border-width: 0.15rem;
-  background: rgb(0, 217, 255);
-  
-  margin-top: 10%;
-  margin-left: 30%;
-  margin-right: 30%;
+  box-shadow: 5px 10px rgba(0, 0, 0, .40);
+  background-color: rgba(211, 248, 255, 0.95);
 }
 
 .input-container {
-  padding: 3%;
+  padding: 2%;
 
   display: flex;
   flex-direction: column;
@@ -28,7 +50,7 @@ body {
 }
 
 .button-container {
-  padding-bottom: 3%;
+  padding: 3%;
 
   display: flex;
   align-items: center;
@@ -37,10 +59,7 @@ body {
 
 .calculation-container {
   padding: 1rem;
-
-  border-style: solid;
-  border-width: 0.15rem;
-  border-radius: 5px;
+  border-top-style: solid;
 }
 
 #after-tax {

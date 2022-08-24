@@ -37,10 +37,11 @@ class Calculator extends React.Component {
     }
 
     if(this.state.value < personalAllowence){
-      let result = this.state.value;
+      let yearlySalary = this.state.value;
       this.setState({
+        yearly: '£' + yearlySalary.toLocaleString('en-UK'),
         payable: '£0',
-        profit: '£' + result.toLocaleString('en-UK'),
+        profit: '£' + yearlySalary.toLocaleString('en-UK'),
         value: ''
       });
     }
@@ -51,6 +52,7 @@ class Calculator extends React.Component {
       let netProfit = yearlySalary - taxPayable;
       
       this.setState({
+        yearly: '£' + yearlySalary.toLocaleString('en-UK'),
         payable: '£' + taxPayable.toLocaleString('en-UK'),
         profit: '£' + netProfit.toLocaleString('en-UK'),
         value: ''
@@ -63,6 +65,7 @@ class Calculator extends React.Component {
       let netProfit = yearlySalary - taxPayable;
       
       this.setState({
+        yearly: '£' + yearlySalary.toLocaleString('en-UK'),
         payable: '£' + taxPayable.toLocaleString('en-UK'),
         profit: '£' + netProfit.toLocaleString('en-UK'),
         value: ''
@@ -75,6 +78,7 @@ class Calculator extends React.Component {
       let netProfit = yearlySalary - taxPayable;
       
       this.setState({
+        yearly: '£' + yearlySalary.toLocaleString('en-UK'),
         payable: '£' + taxPayable.toLocaleString('en-UK'),
         profit: '£' + netProfit.toLocaleString('en-UK'),
         value: ''
@@ -85,21 +89,24 @@ class Calculator extends React.Component {
   render() {
     return (
       <>
-        <form className='input-container' onSubmit={this.handleSubmit}>
-          <label>THIS IS YOUR TAX CALCULATOR</label>
-          <input type='text' value={this.state.value} onChange={this.handleChange} placeholder='Your Yearly Salary'></input>
-          <button onClick={this.calculateTax}>Calculate</button>
-          <button onClick={this.resetInputField}>Clear Field</button>
-        </form>
-  
-        <div className='calculation-container'>
-          <div>
-            <label>Tax Payable:</label>
-            <h2 id='payable-tax'>{this.state.payable}</h2>
-            <label>After Tax:</label>
-            <h2 id='after-tax'>{this.state.profit}</h2>
-            {/* <label>Contributions:</label> */}
-            {/* <h3 id='contributions'></h3> */}
+        <div className='calculator-container'>
+          <form className='input-container' onSubmit={this.handleSubmit}>
+            <input type='text' value={this.state.value} onChange={this.handleChange} placeholder='Your Yearly Salary'></input>
+            <button onClick={this.calculateTax}>Calculate</button>
+            <button onClick={this.resetInputField}>Clear Field</button>
+          </form>
+    
+          <div className='calculation-container'>
+            <div>
+              <label>You Entered:</label>
+              <h2 id='payable-tax'>{this.state.yearly}</h2>
+              <label>Tax Payable:</label>
+              <h2 id='payable-tax'>{this.state.payable}</h2>
+              <label>Profit:</label>
+              <h2 id='after-tax'>{this.state.profit}</h2>
+              {/* <label>Contributions:</label> */}
+              {/* <h3 id='contributions'></h3> */}
+            </div>
           </div>
         </div>
       </>
